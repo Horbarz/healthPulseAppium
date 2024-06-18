@@ -1,3 +1,6 @@
+import { productionUsers } from "../../fixtures/users";
+
+
 describe("Login Test Case", () =>{
     beforeEach(async ()=> {
         await $('//*[@content-desc="Skip >>"]').click();
@@ -7,10 +10,10 @@ describe("Login Test Case", () =>{
         await $('//*[@content-desc="Login"]').click();
         await $('//*[@text="Allow"]').click();
         await $('(//*[@class="android.widget.EditText"])[1]').click();
-        await $('(//*[@class="android.widget.EditText"])[1]').setValue("12487")
+        await $('(//*[@class="android.widget.EditText"])[1]').setValue(productionUsers.username)
         await $('(//*[@class="android.widget.EditText"])[2]').click();
-        await $('(//*[@class="android.widget.EditText"])[2]').setValue("P@55w0rd524")
-        await driver.hideDeviceKeyboard()
+        await $('(//*[@class="android.widget.EditText"])[2]').setValue(productionUsers.password)
+        // await driver.hideDeviceKeyboard()
         await $('//*[@content-desc="Login"]').click();
     })
 })
